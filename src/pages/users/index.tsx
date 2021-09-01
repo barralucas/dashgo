@@ -14,7 +14,8 @@ import {
     Text,
     useBreakpointValue
 } from "@chakra-ui/react";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
+import Link from "next/link";
+import { RiAddLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/SideBar";
@@ -36,15 +37,17 @@ export default function UserList() {
                     <Flex mb="8" justify="space-between" align="center">
                         <Heading size="lg" fontWeight="normal">Usuários</Heading>
 
-                        <Button
-                            as="a"
-                            size="sm"
-                            fontSize="sm"
-                            colorScheme="pink"
-                            leftIcon={<Icon fontSize="20" as={RiAddLine} />}
-                        >
-                            Criar novo
-                        </Button>
+                        <Link href="/users/create" passHref>
+                            <Button
+                                as="a"
+                                size="sm"
+                                fontSize="sm"
+                                colorScheme="pink"
+                                leftIcon={<Icon fontSize="20" as={RiAddLine} />}
+                            >
+                                Criar novo
+                            </Button>
+                        </Link>
                     </Flex>
 
                     <Table colorScheme="whiteAlpha">
@@ -55,7 +58,7 @@ export default function UserList() {
                                 </Th>
                                 <Th>Usuário</Th>
                                 {isWideVersion && <Th>Data de cadastro</Th>}
-                            
+
                             </Tr>
                         </Thead>
                         <Tbody>
@@ -70,7 +73,7 @@ export default function UserList() {
                                     </Box>
                                 </Td>
                                 {isWideVersion && <Td>22 de agosto, 2021</Td>}
-                                
+
                             </Tr>
                         </Tbody>
                     </Table>
